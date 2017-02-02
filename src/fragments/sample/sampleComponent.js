@@ -5,6 +5,7 @@ export class Sample extends React.Component {
 
   static propTypes = {
     sample: PropTypes.object, // state
+    name: PropTypes.string, // attribute
     label: PropTypes.string, // attribute
     clickButton: PropTypes.func // action
   };
@@ -14,12 +15,13 @@ export class Sample extends React.Component {
   }
 
   render() {
-    const {sample: {text}, label, clickButton} = this.props;
+    const {sample: {text}, name, label, clickButton} = this.props;
     return (
       <div className="sample-root">
-        This is sample {label}
+        This is sample {name}
         {this.renderButton(clickButton)}
         <div>{text}</div>
+        <div>{label}</div>
       </div>
     );
   }

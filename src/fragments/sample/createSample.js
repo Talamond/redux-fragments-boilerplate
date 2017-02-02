@@ -9,3 +9,22 @@ export function createSampleFragment(stateSelector, prefix) {
   }), createActionCreators(createActionTypes(prefix)));
   return link(Sample);
 };
+
+export function overrideSampleFragment(stateSelector, prefix, actions, compClass) {
+  let linkClass = Sample;
+  if (compClass) {
+    linkClass = compClass
+  }
+  let linkActions = createActionCreators(createActionTypes(prefix));
+  if (actions) {
+    linkActions = {
+      ...linkActions,
+      ...actions
+    };
+  }
+
+  const link = connect(store => ({
+    sample: stateSelector(store)
+  }), linkActions);
+  return link(linkClass);
+}

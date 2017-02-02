@@ -1,5 +1,5 @@
 import { createActionTypes } from './sampleActionTypes.js';
-import * as ReducerHelper from '../../utils/reducerHelper';
+import { combineFragmentsHandlers } from 'redux-fragments';
 
 const fragments = {
 };
@@ -13,10 +13,11 @@ export const createHandlers = (prefix) => {
 	const actionTypes = createActionTypes(prefix);
 	const handlers = {};
 
-  handlers[actionTypes.CLICK_BUTTON] = (newState, payload) => {
+  handlers[actionTypes.CLICK_BUTTON] = (state, payload) => {
+    const newState = {...state};
     newState.text = 'clicked!';
     return newState;
   };
 
-	return ReducerHelper.addFragmentsHandlers(handlers, fragments);
+	return combineFragmentsHandlers(handlers, fragments);
 };
