@@ -5,7 +5,7 @@ const fragments = {
 };
 
 export const initialState = {
-  text: 'No action has been fired'
+  text: 'Has not been clicked'
 };
 
 /* eslint-disable no-param-reassign */ // the newState is passed in to avoid having to create a new state on each function

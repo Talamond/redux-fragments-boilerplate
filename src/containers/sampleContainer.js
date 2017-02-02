@@ -1,6 +1,7 @@
 import React, {PropTypes} from 'react';
 import { connect } from 'react-redux';
 import { prefix } from '../reducers/sampleReducer.js';
+import { createSampleFragment } from '../fragments/sample/createSample.js';
 
 @connect(state => ({
 	sample: state.sample.root
@@ -19,14 +20,14 @@ export class SampleContainer extends React.Component {
 	};
 
 	componentWillMount() {
-		// this.Timeline = crea((store) => store.timeline.fragments.timeline, prefix);
+		this.Sample = createSampleFragment((store) => store.sample.fragments.sample1, prefix);
 	}
 
 	render() {
-		// const Timeline = this.Timeline;
+		const Sample = this.Sample;
 
 		return (
-      <div>sample</div>
+      <Sample label="1"/>
 		);
 	}
 }

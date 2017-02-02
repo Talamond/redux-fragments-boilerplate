@@ -1,11 +1,9 @@
 export function createActionCreators(actionTypes) {
 
-  function clickButton(id, tabIndex) {
+  function clickButton() {
 	  return {
 	    type: actionTypes.CLICK_BUTTON,
       payload: {
-	      id,
-        tabIndex
       }
     };
   }

@@ -95,7 +95,7 @@
     "react-router-redux": "4.0.5",
     "redux-thunk": "2.1.0",
     "redux": "3.5.2",
-    "redux-fragments": "0.0.6",
+    "redux-fragments": "0.1.0",
     "redux-logger": "2.6.1",
     "redux-promise": "0.5.3",
     "reselect": "2.5.3"
