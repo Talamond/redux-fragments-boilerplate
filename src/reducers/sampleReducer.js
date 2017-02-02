@@ -1,11 +1,15 @@
 import { attachState, executeHandlers } from 'redux-fragments';
 import { initialState as sampleInitialState, createHandlers } from '../fragments/sample/sampleReducerHandlers.js';
+import { createHandlers as overrideHandlers } from '../fragments/sampleOverride/sampleOverrideReducerHandlers.js';
 import { createActionTypes } from '../fragments/sample/sampleActionTypes.js';
+import { initialState as nestedInitialState, createHandlers as nestedHandlers } from '../fragments/sampleNested/sampleNestedReducerHandlers.js';
 import _ from 'lodash';
 
 export const prefix = 'PREFIX__';
 export const prefix2 = 'PREFIX2__';
 export const prefix3 = 'PREFIX3__';
+export const prefix4 = 'PREFIX4__';
+export const prefixSample = 'PREFIX_SAMPLE__';
 
 const sample3Types = createActionTypes(prefix3);
 
@@ -32,6 +36,23 @@ const fragments = {
     },
     handlers: {
       ...createHandlers(prefix3)
+    }
+  },
+  sample4: {
+    state: {
+      ...sampleInitialState
+    },
+    handlers: {
+      ...createHandlers(prefix4),
+      ...overrideHandlers(prefix4)
+    }
+  },
+  sampleNested: {
+    state: {
+      ...nestedInitialState
+    },
+    handlers: {
+      ...nestedHandlers(prefixSample)
     }
   }
 };
