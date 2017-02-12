@@ -1,7 +1,9 @@
 export function createActionCreators(actionTypes) {
 
   function clickButton() {
-	  return {
+    // console.log('sdasd');
+    // console.log(actionTypes.CLICK_BUTTON);
+    return {
 	    type: actionTypes.CLICK_BUTTON,
       payload: {
       }

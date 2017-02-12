@@ -6,7 +6,7 @@ import { createHandlers, initialState } from '../src/fragments/sample/sampleRedu
 import { executeHandlers } from 'redux-fragments';
 import configureMockStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
-import { render } from 'enzyme'
+import { mount } from 'enzyme'
 import { Provider } from 'react-redux';
 
 const middlewares = [ thunkMiddleware ];
@@ -21,13 +21,14 @@ describe('Example Tests', () => {
     exStore = mockStore({ ...initialState });
     handlers = createHandlers(prefix);
     const Sample = createSampleFragment(s => s, prefix);
-    comp = render(<Provider store={exStore}><Sample/></Provider>);
+    comp = mount(<Provider store={exStore}><Sample/></Provider>);
   });
 
   it('View to Action', () => {
-    comp.find('.button').simulate('click');
+    const button = comp.find('button');
+    button.simulate('click');
     const lastAction = exStore.getActions()[0];
-    expect(lastAction.type).toBe(actionTypes.clickButton);
+    expect(lastAction.type).toBe(actionTypes.CLICK_BUTTON);
   });
 
   it('Action to Reducer', () => {
@@ -40,7 +41,7 @@ describe('Example Tests', () => {
   it('Reducer to View', () => {
     exStore = mockStore({ text: 'custom' });
     const Sample = createSampleFragment(s => s, prefix);
-    comp = render(<Provider store={exStore}><Sample/></Provider>);
+    comp = mount(<Provider store={exStore}><Sample/></Provider>);
     expect(comp.find('.text').text()).toBe('custom');
   });
 

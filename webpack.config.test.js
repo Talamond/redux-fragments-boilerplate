@@ -4,6 +4,7 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
+  // TODO hmmm webpack 2 needs this, karma doesn't, error message results
   entry: {
     script: path.resolve(__dirname, "./entry.js")
   },
@@ -55,6 +56,7 @@ module.exports = {
   },
   externals: {
     'react/lib/ExecutionEnvironment': true,
+    'react/addons': true,
     'react/lib/ReactContext': 'window'
   },
 };
