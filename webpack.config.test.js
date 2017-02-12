@@ -4,34 +4,57 @@ const path = require('path');
 const webpack = require('webpack');
 
 module.exports = {
-  output: {
-    filename: 'js/[name].js',
-    path: path.resolve(__dirname, 'build/client'),
-    publicPath: '/'
+  entry: {
+    script: path.resolve(__dirname, "./entry.js")
   },
-  entry: () => false,
-  resolve: {
-    modules: [
-      path.join(__dirname, 'src'),
-      'node_modules'
-    ],
-    extensions: ['.js']
-  },
+
   module: {
     rules: [
       {
         test: /\.js$/,
-        include: [/src/, /tests/],
-        exclude: /(node_modules)/,
-        loader: 'babel-loader',
-        enforce: 'pre'
-      },
-      {
-        test: /\.js?$/,
-        include: [path.resolve(__dirname, './src'), path.resolve(__dirname, './tests/sampleFragments')],
-        exclude: path.resolve(__dirname, './tests'),
-        loader: 'babel-loader'
+        loader: "babel-loader",
+        exclude: /(\/node_modules\/|test\.js$)/,
+      }, {
+        test: /\.scss$/,
+        include: [
+          path.resolve(__dirname, 'src')
+        ],
+        use: [
+          'style-loader',
+          'css-loader',
+          {
+            loader: 'postcss-loader',
+            options: {
+              plugins: () => [ require('autoprefixer')({ browsers: ['last 2 versions'] }) ]
+            }
+          },
+          { loader: 'sass-loader', query: { outputStyle: 'expanded' } }
+        ]
+      }, {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader!postcss-loader'
       }
     ]
-  }
+  },
+
+  output: {
+    path: "./dist",
+    filename: "script.js",
+    pathinfo: true
+  },
+
+  resolve: {
+    extensions: [".js"],
+    modules: [
+      __dirname,
+      path.resolve(__dirname, "./node_modules")
+    ]
+  },
+  externals: {
+    'jsdom': 'window',
+    'cheerio': 'window',
+    'react/lib/ExecutionEnvironment': true,
+    'react/addons': true,
+    'react/lib/ReactContext': 'window'
+  },
 };

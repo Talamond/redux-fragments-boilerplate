@@ -11,7 +11,7 @@ export class Sample extends React.Component {
   };
 
   renderButton(clickButton) {
-    return <button type="button" onClick={() => clickButton()}>Button</button>;
+    return <button className="sample button" type="button" onClick={() => clickButton()}>Button</button>;
   }
 
   render() {

@@ -17,7 +17,7 @@ module.exports = function (config) {
       'jasmine',
     ],
     preprocessors: {
-      'tests/fragmentHelper.spec.js': ['webpack', 'sourcemap'],
+      'tests/example.spec.js': ['webpack', 'sourcemap'],
     },
     reporters: ['progress', 'coverage'],
     webpack: webpackConfig
