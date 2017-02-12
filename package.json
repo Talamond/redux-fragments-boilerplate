@@ -22,7 +22,8 @@
     "start": "webpack-dashboard -c cyan -- node server.js",
     "prebuild": "npm run clean:build",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.production.js --progress",
-    "build:vendor": "cross-env NODE_ENV=production webpack --config ./webpack.config.vendor.js --progress"
+    "build:vendor": "cross-env NODE_ENV=production webpack --config ./webpack.config.vendor.js --progress",
+    "test": "karma start --single-run --no-auto-watch karma.config.js"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "1.0.2",
@@ -51,9 +52,16 @@
     "extract-text-webpack-plugin": "2.0.0-beta.3",
     "file-loader": "0.9.0",
     "http-server": "0.9.0",
+    "jasmine-core": "^2.4.1",
     "jquery": "3.1.0",
     "jsdom": "9.4.5",
     "json-loader": "0.5.4",
+    "karma": "^0.13.19",
+    "karma-chrome-launcher": "^0.2.2",
+    "karma-coverage": "^0.5.3",
+    "karma-jasmine": "^0.3.6",
+    "karma-sourcemap-loader": "^0.3.7",
+    "karma-webpack": "^1.7.0",
     "mocha": "3.0.2",
     "node-sass": "3.8.0",
     "postcss-loader": "0.11.1",
