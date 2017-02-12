@@ -15,6 +15,9 @@ module.exports = {
         loader: "babel-loader",
         exclude: /(\/node_modules\/|test\.js$)/,
       }, {
+        test: /\.json$/,
+        loader: 'json-loader'
+      }, {
         test: /\.scss$/,
         include: [
           path.resolve(__dirname, 'src')
@@ -51,10 +54,7 @@ module.exports = {
     ]
   },
   externals: {
-    'jsdom': 'window',
-    'cheerio': 'window',
     'react/lib/ExecutionEnvironment': true,
-    'react/addons': true,
     'react/lib/ReactContext': 'window'
   },
 };

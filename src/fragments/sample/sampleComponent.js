@@ -20,7 +20,7 @@ export class Sample extends React.Component {
       <div className="sample-root">
         This is sample {name}
         {this.renderButton(clickButton)}
-        <div>{text}</div>
+        <div className="sample text">{text}</div>
         <div>{label}</div>
       </div>
     );

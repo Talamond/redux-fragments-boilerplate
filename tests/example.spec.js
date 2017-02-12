@@ -7,6 +7,7 @@ import { executeHandlers } from 'redux-fragments';
 import configureMockStore from 'redux-mock-store';
 import thunkMiddleware from 'redux-thunk';
 import { render } from 'enzyme'
+import { Provider } from 'react-redux';
 
 const middlewares = [ thunkMiddleware ];
 const mockStore = configureMockStore(middlewares);
@@ -20,7 +21,7 @@ describe('Example Tests', () => {
     exStore = mockStore({ ...initialState });
     handlers = createHandlers(prefix);
     const Sample = createSampleFragment(s => s, prefix);
-    comp = render(<Sample/>);
+    comp = render(<Provider store={exStore}><Sample/></Provider>);
   });
 
   it('View to Action', () => {
@@ -39,8 +40,8 @@ describe('Example Tests', () => {
   it('Reducer to View', () => {
     exStore = mockStore({ text: 'custom' });
     const Sample = createSampleFragment(s => s, prefix);
-    comp = render(<Sample/>);
-    expect(comp.find('.button').text()).toBe('custom');
+    comp = render(<Provider store={exStore}><Sample/></Provider>);
+    expect(comp.find('.text').text()).toBe('custom');
   });
 
 });

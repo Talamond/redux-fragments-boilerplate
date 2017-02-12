@@ -1,5 +1,3 @@
-// Polyfills must be imported first!
-// import 'babel-polyfill';
 import React, { Component, PropTypes } from 'react';
 import { store } from './store';
 import { Provider } from 'react-redux';
