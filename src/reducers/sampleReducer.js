@@ -2,7 +2,7 @@ import { attachState, executeHandlers } from 'redux-fragments';
 import { initialState as sampleInitialState, createHandlers } from '../fragments/sample/sampleReducerHandlers.js';
 import { createHandlers as overrideHandlers } from '../fragments/sampleOverride/sampleOverrideReducerHandlers.js';
 import { createActionTypes } from '../fragments/sample/sampleActionTypes.js';
-import { initialState as nestedInitialState, createHandlers as nestedHandlers } from '../fragments/sampleNested/sampleNestedReducerHandlers.js';
+import { getInitialState as nestedInitialState, createHandlers as nestedHandlers } from '../fragments/sampleNested/sampleNestedReducerHandlers.js';
 import _ from 'lodash';
 
 export const prefix = 'PREFIX__';
@@ -49,7 +49,7 @@ const fragments = {
   },
   sampleNested: {
     state: {
-      ...nestedInitialState
+      ...nestedInitialState()
     },
     handlers: {
       ...nestedHandlers(prefixSample)

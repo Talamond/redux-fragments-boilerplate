@@ -8,7 +8,7 @@ import { createActionTypes } from '../fragments/sampleOverride/sampleOverrideAct
 import { createSampleNestedFragment } from '../fragments/sampleNested/createSampleNested.js';
 
 @connect(state => ({
-	sample: state.sample.root // attaching to an object that does't contain fragments is important for performance
+	sample: state.sample // attaching to an object that does't contain fragments is important for performance
 }))
 export class SampleContainer extends React.Component {
 	static propTypes = {
@@ -48,8 +48,8 @@ export class SampleContainer extends React.Component {
         <Sample name="1" label="hardcoded label"/>
         <div style={{paddingTop: '20px'}}>Sample 2 and 3 share the same label via the parent and react props.</div>
         <div>When the button in Sample 3 is clicked, they both change because the parent catches the action</div>
-        <Sample2 name="2" label={this.props.sample.labelTwoThree}/>
-        <Sample3 name="3" label={this.props.sample.labelTwoThree}/>
+        <Sample2 name="2" label={this.props.sample.root.labelTwoThree}/>
+        <Sample3 name="3" label={this.props.sample.root.labelTwoThree}/>
         <div style={{paddingTop: '20px'}}>Sample 4 overrides Sample 1.</div>
         <Sample4 name="4" label="label"/>
         <SampleNested selectReduxState={(store) => store.sample.fragments.sampleNested} prefix={prefixSample}/>

@@ -1,5 +1,5 @@
 import { createActionTypes } from './sampleNestedActionTypes.js';
-import { combineFragmentsHandlers } from 'redux-fragments';
+import { combineFragmentsHandlers, attachState } from 'redux-fragments';
 import { initialState as sampleInitialState, createHandlers as sampleHandlers} from '../sample/sampleReducerHandlers.js';
 
 export const samplePrefix = 'INNER_SAMPLE__';
@@ -10,13 +10,17 @@ const fragments = {
       ...sampleInitialState
     },
     handlers: {
-      ...sampleHandlers(samplePrefix)
+      ...sampleHandlers('PREFIX_SAMPLE__' + samplePrefix) // TODO need to resolve this case
     }
   }
 };
 
-export const initialState = {
+const initialState = {
   parentText: 'Parent not yet clicked'
+};
+
+export const getInitialState = () => {
+  return attachState(initialState, fragments);
 };
 
 export const createHandlers = (prefix) => {

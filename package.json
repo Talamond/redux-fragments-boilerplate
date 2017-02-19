@@ -23,7 +23,9 @@
     "prebuild": "npm run clean:build",
     "build": "cross-env NODE_ENV=production webpack --config ./webpack.config.production.js --progress",
     "build:vendor": "cross-env NODE_ENV=production webpack --config ./webpack.config.vendor.js --progress",
-    "test": "karma start --single-run --no-auto-watch karma.config.js"
+    "test": "karma start --single-run --no-auto-watch karma.config.js",
+    "test:debug": "karma start --browsers=Chrome --single-run=false --debug karma.config.js",
+    "postinstall": "npm run build:vendor"
   },
   "devDependencies": {
     "add-asset-html-webpack-plugin": "1.0.2",
@@ -105,7 +107,7 @@
     "react-router-redux": "4.0.5",
     "redux-thunk": "2.1.0",
     "redux": "3.5.2",
-    "redux-fragments": "0.1.0",
+    "redux-fragments": "0.1.7",
     "redux-logger": "2.6.1",
     "redux-promise": "0.5.3",
     "reselect": "2.5.3"

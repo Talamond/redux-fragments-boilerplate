@@ -15,7 +15,6 @@ export class SampleNested extends React.Component {
     super(props, context);
     this.Sample = createSampleFragment((state) => {
       return state.sample.fragments.sampleNested.fragments.sample;
-      // return props.selectReduxState(state).fragments.sample;
     }, props.prefix + samplePrefix);
   }
 
@@ -23,7 +22,7 @@ export class SampleNested extends React.Component {
     const Sample = this.Sample;
     return (<div style={{border: '1px solid red'}}>
       <div>This fragment has a Sample Fragment inside of it</div>
-      <button type="button" onClick={() => clickButtonParent()}>Parent Button</button>
+      <button type="button" onClick={() => this.props.clickButtonParent()}>Parent Button</button>
       <div>{this.props.sampleNested.parentText}</div>
       <Sample name="5" label="Nested"/>
     </div>);
