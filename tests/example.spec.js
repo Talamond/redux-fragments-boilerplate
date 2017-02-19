@@ -42,7 +42,7 @@ describe('Example Tests', () => {
     exStore = mockStore({ text: 'custom' });
     const Sample = createSampleFragment(s => s, prefix);
     comp = mount(<Provider store={exStore}><Sample/></Provider>);
-    expect(comp.find('.text').text()).toBe('custom');
+    expect(comp.find('.text').text()).toBe('Redux State - text: custom');
   });
 
 });
