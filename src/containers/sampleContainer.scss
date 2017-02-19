@@ -1,0 +1,26 @@
+@import '../constants.scss';
+
+.sampleCon.welcome {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.sampleCon.title {
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0 10px 0;
+}
+
+.sampleCon.sample2, .sampleCon.sample3 {
+  display: inline-block;
+  width: 35vw;
+}
+
+.sampleCon.sampleNested {
+  margin: 10px 0;
+}
+
+.sampleCon.end {
+  margin-bottom: 50px;
+}

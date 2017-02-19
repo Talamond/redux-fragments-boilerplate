@@ -11,17 +11,17 @@ export class Sample extends React.Component {
   };
 
   renderButton(clickButton) {
-    return <button className="sample button" type="button" onClick={() => clickButton()}>Button</button>;
+    return <button className="sample button" onClick={() => clickButton()}>Button</button>;
   }
 
   render() {
     const {sample: {text}, name, label, clickButton} = this.props;
     return (
       <div className="sample-root">
-        This is sample {name}
-        {this.renderButton(clickButton)}
-        <div className="sample text">{text}</div>
-        <div>{label}</div>
+        <div>Name: {name}</div>
+        <div>Label: {label}</div>
+        <div className="sample button">{this.renderButton(clickButton)}</div>
+        <div className="sample text">Redux State - text: {text}</div>
       </div>
     );
   }

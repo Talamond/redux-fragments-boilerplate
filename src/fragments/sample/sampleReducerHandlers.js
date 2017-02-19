@@ -5,10 +5,10 @@ const fragments = {
 };
 
 export const initialState = {
-  text: 'Has not been clicked'
+  text: 'Not clicked'
 };
 
-/* eslint-disable no-param-reassign */ // the newState is passed in to avoid having to create a new state on each function
+/* eslint-disable no-param-reassign */
 export const createHandlers = (prefix) => {
 	const actionTypes = createActionTypes(prefix);
 	const handlers = {};

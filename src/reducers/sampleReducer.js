@@ -5,10 +5,10 @@ import { createActionTypes } from '../fragments/sample/sampleActionTypes.js';
 import { getInitialState as nestedInitialState, createHandlers as nestedHandlers } from '../fragments/sampleNested/sampleNestedReducerHandlers.js';
 import _ from 'lodash';
 
-export const prefix = 'PREFIX__';
-export const prefix2 = 'PREFIX2__';
-export const prefix3 = 'PREFIX3__';
-export const prefix4 = 'PREFIX4__';
+export const prefix = 'SAMPLE_1__';
+export const prefix2 = 'SAMPLE_2__';
+export const prefix3 = 'SAMPLE_3__';
+export const prefix4 = 'SAMPLE_4__';
 export const prefixSample = 'PREFIX_SAMPLE__';
 
 const sample3Types = createActionTypes(prefix3);
@@ -75,6 +75,7 @@ export function sample(state = getInitialState(), action) {
 	return ret;
 }
 
+// overwrite sample 3's behavior!
 handlers[sample3Types.CLICK_BUTTON] = (state, payload) => {
   const newState = _.cloneDeep(state);
   newState.root.labelTwoThree = 'A different label for 2 and 3';
