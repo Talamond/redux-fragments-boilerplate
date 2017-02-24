@@ -24,6 +24,7 @@ const OVER_COMP = 'https://github.com/Talamond/redux-fragments-boilerplate/blob/
 const NEST_ROOT = 'https://github.com/Talamond/redux-fragments-boilerplate/tree/master/src/fragments/sampleNested';
 const NEST_RED = 'https://github.com/Talamond/redux-fragments-boilerplate/blob/master/src/fragments/sampleNested/sampleNestedReducerHandlers.js';
 
+// TODO, this should attach to state.sample.root, not state.sample. This way causes unneeded re-renders
 @connect(state => ({
 	sample: state.sample // attaching to an object that does't contain fragments is important for performance
 }))
