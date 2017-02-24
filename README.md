@@ -2,6 +2,14 @@
 
 This is a simple boilerplate that showcases redux-fragments style architecture. 
 
+## How to Run
+ * npm install
+ * npm start
+ * localhost:4002
+ 
+## How to Run Sample Tests
+ * npm run test (after npm install)
+
 ## Unique Features
  * redux-fragments
  * DLLPlugin
