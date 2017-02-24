@@ -24,3 +24,4 @@ This is a simple boilerplate that showcases redux-fragments style architecture.
  * remove DS store
  * fix blog's direct urls
  * links go to exact line
+ * fix connect on sampleContainer (it should be sample.root)
